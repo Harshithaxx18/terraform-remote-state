@@ -3,18 +3,18 @@ data "aws_ami" "amazon_linux" {
   owners      = ["amazon"]
 
   filter {
-    name   = "name"
-    values = ["al2023-ami-2023.*-x86_64"]
+    name   = var.ami_name_filter
+    values = [var.ami_name_pattern]
   }
 
   filter {
-    name   = "architecture"
-    values = ["x86_64"]
+    name   = var.ami_architecture_filter
+    values = [var.ami_architecture]
   }
 
   filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+    name   = var.ami_virtualization_filter
+    values = [var.ami_virtualization_type]
   }
 }
 
